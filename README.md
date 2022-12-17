@@ -1,0 +1,1 @@
+Modern CLI Weather App Using Typer & TinyDB
