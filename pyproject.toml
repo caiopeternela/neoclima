@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "neoclima"
-version = "0.0.2"
+version = "0.0.3"
 description = ""
 authors = ["caiopeternela <caiopeternela.dev@gmail.com>"]
 readme = "README.md"
@@ -9,7 +9,7 @@ readme = "README.md"
 neoclima = "neoclima.main:app"
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.11"
 typer = {extras = ["all"], version = "^0.7.0"}
 requests = "^2.28.1"
 emoji = "^2.2.0"

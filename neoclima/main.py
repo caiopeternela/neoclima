@@ -14,6 +14,9 @@ API_KEY = os.getenv("API_KEY")
 
 @app.command()
 def now(city_nickname: str):
+    """
+    Check current weather for the given city nickname
+    """
     city = db.search(Query().city == city_nickname)
     if city:
         lat = city[0]["coordinates"][0]
@@ -30,6 +33,9 @@ def now(city_nickname: str):
 
 @app.command()
 def add(city_nickname: str):
+    """
+    Add city with the given nickname
+    """
     city_nickname_exists = bool(db.search(Query().city == city_nickname))
     if not city_nickname_exists:
         country = input("Type the country name or code (ISO3166): ")
@@ -46,6 +52,9 @@ def add(city_nickname: str):
 
 @app.command()
 def edit(city_nickname: str):
+    """
+    Edit city nickname
+    """
     city_nickname_db = db.search(Query().city == city_nickname)
     if city_nickname_db:
         new_city_nickname = input(f'Type the new city nickname for "{city_nickname}": ')
@@ -57,6 +66,9 @@ def edit(city_nickname: str):
 
 @app.command()
 def rm(city_nickname: str):
+    """
+    Remove city
+    """
     city_nickname_exists = bool(db.search(Query().city == city_nickname))
     if city_nickname_exists:
         db.remove(Query().city == city_nickname)
@@ -67,5 +79,8 @@ def rm(city_nickname: str):
 
 @app.command()
 def ls():
+    """
+    List added cities
+    """
     cities_nicknames = [dict["city"] for dict in db]
     print(*cities_nicknames, sep="\n")
