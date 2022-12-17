@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "neoclima"
-version = "0.0.3"
-description = ""
+version = "1.0.6"
+description = "Modern CLI Weather App"
 authors = ["caiopeternela <caiopeternela.dev@gmail.com>"]
 readme = "README.md"
 
@@ -9,12 +9,11 @@ readme = "README.md"
 neoclima = "neoclima.main:app"
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "^3.8"
 typer = {extras = ["all"], version = "^0.7.0"}
 requests = "^2.28.1"
 emoji = "^2.2.0"
 tinydb = "^4.7.0"
-python-dotenv = "^0.21.0"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.0.185"

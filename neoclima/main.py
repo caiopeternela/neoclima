@@ -1,16 +1,13 @@
 import typer
 import requests
 from tinydb import TinyDB, Query
-import os
-from dotenv import load_dotenv
 from neoclima.commands_svc import get_emoji
-load_dotenv()
 
 app = typer.Typer()
 
 db = TinyDB("db.json")
 
-API_KEY = os.getenv("API_KEY")
+API_KEY = "5dae4089f7baf07089814ee51012a645"
 
 @app.command()
 def now(city_nickname: str):
@@ -83,4 +80,7 @@ def ls():
     List added cities
     """
     cities_nicknames = [dict["city"] for dict in db]
-    print(*cities_nicknames, sep="\n")
+    if cities_nicknames:
+        print(*cities_nicknames, sep="\n")
+    else:
+        print("No cities added!")
